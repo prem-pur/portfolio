@@ -1,18 +1,18 @@
 import { motion } from 'framer-motion';
 import { FiMoon, FiSun, FiMenu, FiX } from 'react-icons/fi';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 const Navbar = ({ darkMode, setDarkMode }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [active, setActive] = useState('#home');
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { name: 'Home', href: '#home' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
     { name: 'About', href: '#about' },
     { name: 'Education', href: '#education' }
-  ];
+  ], []);
 
   useEffect(() => {
     const handleScroll = () => {
